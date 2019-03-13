@@ -2,6 +2,8 @@
 
     import CounterControl from '../../components/CounterControl/CounterControl';
     import CounterOutput from '../../components/CounterOutput/CounterOutput';
+
+    import * as Actions from '../../store/actions';
     
     import { connect } from 'react-redux'
     
@@ -65,11 +67,11 @@
     //So you will not write actions in containers
     const mapDispatchToProps = dispatch => {
         return {
-            onIncrement : () => dispatch({type: 'INCREMENT'}),
-            onDecrement : () => dispatch({type: 'DECREMENT'}),
-            onADD : () => dispatch({type: 'ADD', val: 5}),
-            onSUBTRACT : () => dispatch({type: 'SUBTRACT', val : 5}),
-            onResult : () => dispatch({type: 'RESULT'})
+            onIncrement : () => dispatch({type: Actions.INCREMENT}),
+            onDecrement : () => dispatch({type: Actions.DECREMENT}),
+            onADD : () => dispatch({type: Actions.ADD, val: 5}),
+            onSUBTRACT : () => dispatch({type: Actions.SUBTRACT, val : 5}),
+            onResult : () => dispatch({type: Actions.RESULT})
         }
     }
     
