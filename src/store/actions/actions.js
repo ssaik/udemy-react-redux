@@ -42,9 +42,10 @@ export const subtract = (val) => {
     };
 };
 
-export const result = () => {
+export const result = (resultVal) => {
     return {
-        type: RESULT
+        type: RESULT,
+        resultVal
     };
 };
 

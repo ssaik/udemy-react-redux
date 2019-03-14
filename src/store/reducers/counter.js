@@ -1,10 +1,9 @@
 const initialState = {
-    counter : 7,
-    score: []
+    counter : 7
 }
 
 
-const reducer = (state = initialState, action) => {
+const counter = (state = initialState, action) => {
     switch(action.type)
     {
         case 'INCREMENT':
@@ -30,14 +29,9 @@ const reducer = (state = initialState, action) => {
                 counter : state.counter - action.val
             }
 
-        case 'RESULT':
-            return {
-                ...state,
-                score : state.score.concat({id: new Date(), val: state.counter})
-            }
         default:
             return state;
     }
 }
 
-export default reducer;
+export default counter;
