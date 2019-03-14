@@ -23,7 +23,7 @@
                     <CounterControl label="Subtract 5" clicked={() => this.counterChangedHandler( 'sub', 5 )}  /> */}
 
                     <hr />
-                    <button onClick={this.props.onResult} >"click me"</button>
+                    <button onClick={() => this.props.onResult(this.props.ctr)} >"click me"</button>
                     <ul>
                         {this.props.storedScore.map(res => (
                             <li key={res.id}>
@@ -39,8 +39,8 @@
     const mapStateToProps = state => {
         return {
             
-            storedScore : state.score,
-            ctr : state.counter
+            storedScore : state.res.score,
+            ctr : state.ctr.counter
             // This state.counter is coming from Reducer.js
         }
     }
@@ -53,7 +53,7 @@
             onDecrement : () => dispatch(actionTypes.decrement()),
             onADD : () => dispatch(actionTypes.add(5)),
             onSUBTRACT : () => dispatch(actionTypes.subtract(5)),
-            onResult : () => dispatch(actionTypes.result())
+            onResult : (result) => dispatch(actionTypes.result(result))
         }
     }
     
