@@ -25,11 +25,20 @@ export const add = (val) => {
     };
 };
 
-export const subtract = (val) => {
+export const delaySubstact = (val) => {
     return {
         type: SUBTRACT,
-        // val : val --> which is same as "val" next line, because both are having same name.
         val
+    }
+}
+
+//Using thunk, we can perform Asynchronous jobs, example, making HTTP callouts, or timeout functions, etc.
+//Return dispatch function, and put the action in it.
+export const subtract = (val) => {
+    return dispatch => {
+        setTimeout( () => {
+            dispatch(delaySubstact(val))
+        }, 2000);
     };
 };
 
