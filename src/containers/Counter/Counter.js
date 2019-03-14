@@ -3,9 +3,11 @@
     import CounterControl from '../../components/CounterControl/CounterControl';
     import CounterOutput from '../../components/CounterOutput/CounterOutput';
 
-    import * as Actions from '../../store/actions';
+    import * as Actions from '../../store/actions/actions';
     
     import { connect } from 'react-redux'
+
+    import * as actionTypes from '../../store/actions/actions'
     
     class Counter extends Component {
 
@@ -47,11 +49,11 @@
     //So you will not write actions in containers
     const mapDispatchToProps = dispatch => {
         return {
-            onIncrement : () => dispatch({type: Actions.INCREMENT}),
-            onDecrement : () => dispatch({type: Actions.DECREMENT}),
-            onADD : () => dispatch({type: Actions.ADD, val: 5}),
-            onSUBTRACT : () => dispatch({type: Actions.SUBTRACT, val : 5}),
-            onResult : () => dispatch({type: Actions.RESULT})
+            onIncrement : () => dispatch(actionTypes.increment()),
+            onDecrement : () => dispatch(actionTypes.decrement()),
+            onADD : () => dispatch(actionTypes.add(5)),
+            onSUBTRACT : () => dispatch(actionTypes.subtract(5)),
+            onResult : () => dispatch(actionTypes.result())
         }
     }
     
