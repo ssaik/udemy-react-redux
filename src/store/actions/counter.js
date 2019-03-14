@@ -32,8 +32,8 @@ export const delaySubstact = (val) => {
 export const subtract = (val) => {
     return (dispatch, getState) => {        //Thunk can have 2nd paramenter, this is getState. it has previousValues
         setTimeout( () => {
-            const oldCounter = getState().ctr.counter;  //Which is not recommended most of the time, and depends.
-            console.log('-----Oldcounter: ', oldCounter)
+            // const oldCounter = getState().ctr.counter;  //Which is not recommended most of the time, and depends.
+            // console.log('-----Oldcounter: ', oldCounter)
             dispatch(delaySubstact(val))
         }, 2000);
     };
