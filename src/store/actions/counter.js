@@ -30,8 +30,10 @@ export const delaySubstact = (val) => {
 //Using thunk, we can perform Asynchronous jobs, example, making HTTP callouts, or timeout functions, etc.
 //Return dispatch function, and put the action in it.
 export const subtract = (val) => {
-    return dispatch => {
+    return (dispatch, getState) => {        //Thunk can have 2nd paramenter, this is getState. it has previousValues
         setTimeout( () => {
+            const oldCounter = getState().ctr.counter;  //Which is not recommended most of the time, and depends.
+            console.log('-----Oldcounter: ', oldCounter)
             dispatch(delaySubstact(val))
         }, 2000);
     };
